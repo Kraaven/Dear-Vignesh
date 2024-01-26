@@ -12,9 +12,11 @@ public class InteractionController : MonoBehaviour
     //The Latest GameObject the player sees
     private GameObject SeenGameObject;
     //The Current Interactable Onbject
-    private IInteractableObject currentInteractableObject;
+    public IInteractableObject currentInteractableObject;
     //The UI message that is displayed
     private IInteractableObject LastInteracted;
+
+    public int age;
 
     public void Start()
     {
