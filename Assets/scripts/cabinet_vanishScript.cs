@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cabinet_vanishScript : MonoBehaviour
+public class cabinet_vanishScript : MonoBehaviour, IInteractableObject
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private GameObject vanishCabinet;
+    [SerializeField] private BoxCollider vanishcabinet_Collider;
+    public void Interact()
     {
+        vanishcabinet_Collider.enabled = false;
+        StartCoroutine(VanishCabinet());
+    }
+
+    IEnumerator VanishCabinet()
+    {
+        for (int i = 0; i < 120; i++)
+        {
+            vanishCabinet.transform.Translate(0,0,0.1f);
+            yield return new WaitForSeconds(0.05f);
+        }
+        
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool ReInteract()
     {
-        
+        return false;
     }
 }
