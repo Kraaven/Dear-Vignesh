@@ -6,25 +6,30 @@ using UnityEngine;
 public class cabinet_freddy : MonoBehaviour, IInteractableObject
 {
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioSource loopingAudioSource;
+    [SerializeField] private AudioClip firstClip;
+    [SerializeField] private AudioClip loopingClip;
     private bool firstclipPlaying;
-
+    
     private void Start()
     {
+        firstclipPlaying = false;
         audioSource = GetComponent<AudioSource>();
-        loopingAudioSource = GetComponent<AudioSource>();
     }
 
     public void Interact()
     {
-        audioSource.Play(0);
+        audioSource.PlayOneShot(firstClip);
+        firstclipPlaying = true;
     }
 
     private void Update()
     {
-        if (!audioSource.isPlaying && !loopingAudioSource)
+        if (firstclipPlaying && !audioSource.isPlaying)
         {
-            
+            audioSource.clip = loopingClip;
+            audioSource.Play();
+            audioSource.loop = true;
+
         }
     }
 
