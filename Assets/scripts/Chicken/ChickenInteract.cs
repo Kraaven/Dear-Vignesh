@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class ChickenInteract : MonoBehaviour, IInteractableObject
 {
     public GameObject player;
-    public GameObject camera;
+    public GameObject cameraObj;
     public bool isPickedUp = false;
     public CharacterMovement characterMovement;
     public CameraController cameraController;
@@ -56,12 +56,12 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
         if (isPickedUp)
         {
             gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            gameObject.transform.parent = camera.transform;
+            gameObject.transform.parent = cameraObj.transform;
             characterMovement.speed = 0;
             cameraController.sensitivity = 0.5f;
 
             // Store the original rotation of the camera
-            Quaternion originalRotation = camera.transform.rotation;
+            Quaternion originalRotation = cameraObj.transform.rotation;
 
             // Rotate the camera using the mouse input
             cameraController.mouseLook.y += Input.GetAxis("Mouse Y") * cameraController.sensitivity;
@@ -76,10 +76,10 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
 
             // Apply smoothing to the rotation
             float smoothFactor = rotationSmoothing * Time.deltaTime;
-            camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, targetRotation, smoothFactor);
+            cameraObj.transform.rotation = Quaternion.Slerp(cameraObj.transform.rotation, targetRotation, smoothFactor);
 
             // Restore the original rotation in the z-axis (roll)
-            camera.transform.rotation = Quaternion.Euler(camera.transform.rotation.eulerAngles.x, camera.transform.rotation.eulerAngles.y, originalRotation.eulerAngles.z);
+            cameraObj.transform.rotation = Quaternion.Euler(cameraObj.transform.rotation.eulerAngles.x, cameraObj.transform.rotation.eulerAngles.y, originalRotation.eulerAngles.z);
         }
     }
 
