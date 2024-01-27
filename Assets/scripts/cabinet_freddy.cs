@@ -1,30 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class cabinet_freddy : MonoBehaviour, IInteractableObject
 {
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip firstClip;
+    //[SerializeField] private AudioClip firstClip;
     [SerializeField] private AudioClip loopingClip;
-    private bool firstclipPlaying;
+    //private bool firstclipPlaying;
+    [SerializeField] private GameObject stillcabinet_Prefab;
     
     private void Start()
     {
-        firstclipPlaying = false;
+        //firstclipPlaying = false;
         audioSource = GetComponent<AudioSource>();
     }
 
     public void Interact()
     {
-        audioSource.PlayOneShot(firstClip);
-        firstclipPlaying = true;
+        audioSource.Stop();
+        Instantiate(stillcabinet_Prefab, gameObject.transform.position, quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void Update()
     {
-        if (firstclipPlaying && !audioSource.isPlaying)
+        if (!audioSource.isPlaying)
         {
             audioSource.clip = loopingClip;
             audioSource.Play();

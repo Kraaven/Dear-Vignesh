@@ -1045,6 +1045,85 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd2391d97d8055a479a0a23e178c363e, type: 3}
+--- !u!1001 &2281851050669433352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 95515819312695830, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_Name
+      value: Game Manager Script
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384027918475792220, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: cabinetSwitch
+      value: 
+      objectReference: {fileID: 8340928905139453052, guid: bd2391d97d8055a479a0a23e178c363e,
+        type: 3}
+    - target: {fileID: 4384027918475792220, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: interactionCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.8983235
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3025198
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748433828070458288, guid: e60509909f3a7cf40bc2c126ad8b8b97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e60509909f3a7cf40bc2c126ad8b8b97, type: 3}
 --- !u!1001 &3280089232202580556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1108,6 +1187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: still cabinet
       objectReference: {fileID: 0}
+    - target: {fileID: 8340928905139453052, guid: bd2391d97d8055a479a0a23e178c363e,
+        type: 3}
+      propertyPath: interactionCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1125,6 +1209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: freddy cabinet
+      objectReference: {fileID: 0}
+    - target: {fileID: 943328797757947318, guid: d59d0e0cd5ca1e945a8211fd867a61cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2959616464687740891, guid: d59d0e0cd5ca1e945a8211fd867a61cd,
         type: 3}
@@ -1194,6 +1283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: banana cabinet
       objectReference: {fileID: 0}
+    - target: {fileID: 122519085477406035, guid: bf2132f5f945f184e8ef9905706ff7c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3748149809217430849, guid: bf2132f5f945f184e8ef9905706ff7c7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1261,6 +1355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: vanish cabinet
+      objectReference: {fileID: 0}
+    - target: {fileID: 787185819312026238, guid: 316b2d22c6cf8434cbc6032a045841b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5666308144260575202, guid: 316b2d22c6cf8434cbc6032a045841b1,
         type: 3}
@@ -1337,3 +1436,4 @@ SceneRoots:
   - {fileID: 1671836831}
   - {fileID: 3406360218692259656}
   - {fileID: 1844775807}
+  - {fileID: 2281851050669433352}

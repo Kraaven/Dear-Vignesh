@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
+    public int interactionCount = 1;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactionCount = 1;
     }
 
     // Update is called once per frame
@@ -16,3 +19,4 @@ public class PlayerData : MonoBehaviour
         
     }
 }
+
