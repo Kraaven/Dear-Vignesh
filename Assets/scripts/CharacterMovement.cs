@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
- public float speed;
+    public float speed;
     public GameObject player;
     public Rigidbody rb;
     public float jumpspeed;

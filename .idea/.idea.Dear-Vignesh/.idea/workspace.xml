@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d97b43ff-3dec-4954-8452-836f226b8103" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dear-Vignesh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dear-Vignesh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/freedy cabinet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/freedy cabinet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/tree.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/tree.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Samarth Testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Samarth Testing.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/CharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/CharacterMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/TreeGrow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/TreeGrow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +109,7 @@
       <updated>1706297477270</updated>
       <workItem from="1706297482825" duration="6113000" />
       <workItem from="1706308082877" duration="19414000" />
-      <workItem from="1706352759347" duration="1980000" />
+      <workItem from="1706352759347" duration="3272000" />
     </task>
     <servers />
   </component>
