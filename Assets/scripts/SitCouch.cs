@@ -40,7 +40,7 @@ public class SitCouch : MonoBehaviour, IInteractableObject
     {
         Debug.Log("Is Standing");
         isSitting = false;
-        player.transform.position += new Vector3(0, 0, 1);
+        player.transform.position += new Vector3(0, 0.5f, 1.5f);
         player.transform.localScale = new Vector3(0.75f, 1, 0.75f);
         CMscript.speed = 4.5f;
     }
