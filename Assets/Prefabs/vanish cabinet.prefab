@@ -120,4 +120,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vanishCabinet: {fileID: 787185819312026238}
   vanishcabinet_Collider: {fileID: 3742017410234766915}
+  stillcabinet_Prefab: {fileID: 0}
   dialougue: {fileID: 0}

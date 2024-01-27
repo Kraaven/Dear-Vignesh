@@ -11,31 +11,54 @@ public class cabinet_freddy : MonoBehaviour, IInteractableObject
     [SerializeField] private AudioClip loopingClip;
     //private bool firstclipPlaying;
     [SerializeField] private GameObject stillcabinet_Prefab;
+    private bool isOpen;
     
     private void Start()
     {
         //firstclipPlaying = false;
         audioSource = GetComponent<AudioSource>();
+        isOpen = true;
     }
-
+    
     public void Interact()
     {
-        audioSource.Stop();
-        Instantiate(stillcabinet_Prefab, gameObject.transform.position, quaternion.identity);
-        Destroy(gameObject);
+        if (!isOpen)
+        {
+            OpenCabinet_Freddy();
+        }
+        else
+        {
+            CloseCabinet_Freddy();
+        }
+
+    }
+    
+
+    void OpenCabinet_Freddy()
+    {
+        isOpen = true;
+        Debug.Log("Freddy is Open");
+        //audioSource.Stop();
+
+    }
+
+    void CloseCabinet_Freddy()
+    {
+        isOpen = false;
+        Debug.Log("Freddy is Close");
+        audioSource.Pause();
     }
 
     private void Update()
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && isOpen)
         {
             audioSource.clip = loopingClip;
             audioSource.Play();
             audioSource.loop = true;
-
         }
+        
     }
-
 
     public bool ReInteract()
     {

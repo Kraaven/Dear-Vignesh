@@ -120,11 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cabinetPrefabs:
   - {fileID: 787185819312026238, guid: 316b2d22c6cf8434cbc6032a045841b1, type: 3}
-  - {fileID: 943328797757947318, guid: d59d0e0cd5ca1e945a8211fd867a61cd, type: 3}
+  - {fileID: 2624225460272409369, guid: 99846761f390fcd48930597f2f3b6180, type: 3}
   - {fileID: 122519085477406035, guid: bf2132f5f945f184e8ef9905706ff7c7, type: 3}
   stillcabinet_Prefab: {fileID: 6048334995521509705}
   dataPlayer: {fileID: 4384027918475792220, guid: e60509909f3a7cf40bc2c126ad8b8b97,
     type: 3}
-  interact0: 0
-  interact1: 0
-  interact2: 0
+  interactionOrder: 0

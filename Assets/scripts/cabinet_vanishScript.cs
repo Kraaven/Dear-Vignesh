@@ -15,8 +15,8 @@ public class cabinet_vanishScript : MonoBehaviour, IInteractableObject
     public TextController dialougue;
     public void Interact()
     {
-        Instantiate(stillcabinet_Prefab, gameObject.transform.position, quaternion.identity);
-        Destroy(gameObject);
+        //Instantiate(stillcabinet_Prefab, gameObject.transform.position, quaternion.identity);
+        //Destroy(gameObject);
 
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 919043500253940039}
   - component: {fileID: 2416025762629118909}
   - component: {fileID: 7007599557485845882}
+  - component: {fileID: 4302948348516290996}
   m_Layer: 0
   m_Name: banana cabinet
   m_TagString: Untagged
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4302948348516290996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122519085477406035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d62ee5bbd322a045b8c11ecdef3ff41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
