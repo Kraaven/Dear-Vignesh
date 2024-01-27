@@ -70,7 +70,10 @@ public class InteractionController : MonoBehaviour
             if (LastInteracted != null && LastInteracted.ReInteract() )
             {
                 LastInteracted.Interact();
-                LastInteracted = null;
+                if (!LastInteracted.ReInteract())
+                {
+                    LastInteracted = null;   
+                }
             }
             //Check if the seen object can be interacted with
             if (currentInteractableObject != null)
@@ -79,6 +82,5 @@ public class InteractionController : MonoBehaviour
                 LastInteracted = currentInteractableObject;
             }
         }
-        
     }
 }
