@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Flour
+  - Eggs
+  - Milk
+  - Sugar
   layers:
   - Default
   - TransparentFX

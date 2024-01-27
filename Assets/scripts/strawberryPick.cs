@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class strawberryPick : MonoBehaviour,IInteractableObject
 {
-    private bool SBpickedup = false;
+    public bool SBpickedup = false;
     [SerializeField] private GameObject strawberry, anchor;
     
     public void Interact()
@@ -30,6 +30,7 @@ public class strawberryPick : MonoBehaviour,IInteractableObject
 
     void PutDownStrawberry()
     {
+        SBpickedup = false;
         
     }
 
