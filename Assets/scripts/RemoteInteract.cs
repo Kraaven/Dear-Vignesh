@@ -11,7 +11,7 @@ public class RemoteInteract : MonoBehaviour,IInteractableObject
 
     public GameObject video;
     public GameObject image;
-    
+
     public void Interact()
     {
         if (!Pickup)
@@ -28,14 +28,13 @@ public class RemoteInteract : MonoBehaviour,IInteractableObject
             video.SetActive(false);
             image.SetActive(true);
             
-            transform.Translate(-0.7f,1,0);
+            Player.transform.Translate(-0.3f,1,0);
             Player.GetComponent<CharacterMovement>().enabled = true;
             Player.GetComponent<Collider>().enabled = true;
             Player.GetComponent<Rigidbody>().useGravity = true;
             Destroy(Player.GetComponent<PlayerSit>());
-            Player.GetComponent<InteractionController>().LastInteracted = null;
+            Camera.main.GetComponent<InteractionController>().LastInteracted = null;
             Destroy(gameObject);
-            
         }
         
     }
