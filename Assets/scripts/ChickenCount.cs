@@ -13,6 +13,7 @@ public class ChickenCount : MonoBehaviour
     private Vector3 chickenPos;
     public GameObject Egg;
     
+    
     void Start()
     { 
         Count = 0;
@@ -21,24 +22,24 @@ public class ChickenCount : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Count += 1;
-        Debug.Log(Count);
         if (Count == 10 || Count == 20 || Count == 30)  
         {
             chickenPos = chickenObj.transform.position + new Vector3(0,-1,0);
             Instantiate(Egg, chickenPos, transform.rotation);
             Egg.SetActive(true);
+            GameObject.FindObjectOfType<ChickenInteract>().eggs++;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Count += 1;
-        Debug.Log(Count);
         if (Count == 10 || Count == 20 || Count == 30)  
         {
             chickenPos = chickenObj.transform.position + new Vector3(0,-1,0);
             Instantiate(Egg, chickenPos, transform.rotation);
             Egg.SetActive(true);
+            GameObject.FindObjectOfType<ChickenInteract>().eggs++;
         }
     }   
     private void Update()

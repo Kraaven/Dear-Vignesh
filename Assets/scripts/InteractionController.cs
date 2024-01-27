@@ -14,9 +14,8 @@ public class InteractionController : MonoBehaviour
     //The Current Interactable Onbject
     public IInteractableObject currentInteractableObject;
     //The UI message that is displayed
-    private IInteractableObject LastInteracted;
-
-    public int age;
+    public IInteractableObject LastInteracted;
+    
 
     public void Start()
     {
@@ -82,5 +81,6 @@ public class InteractionController : MonoBehaviour
                 LastInteracted = currentInteractableObject;
             }
         }
+        
     }
 }

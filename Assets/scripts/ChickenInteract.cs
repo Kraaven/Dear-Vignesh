@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,33 +9,52 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
 {
     public GameObject player;
     public GameObject camera;
-    public float currentRotationX;
     public bool isPickedUp = false;
     public CharacterMovement characterMovement;
     public CameraController cameraController;
     public float rotationSmoothing = 0.1f;
+    private bool held;
+    public int eggs = 0;
+    private float chickenSpeed = 10f;
+    private AudioSource gsb;
 
     public void Interact()
     {
-        // gameObject.transform.parent = player.transform;
-        // gameObject.transform.position = new Vector3(player.transform.position.x, 3.0f, player.transform.position.z + 1);
-        gameObject.GetComponent<Collider>().enabled = false;
-        isPickedUp = true;
+        Debug.Log("Interacting with chicken");
+        if (!held)
+        {
+            Debug.Log("Holding chicken");
+            gameObject.GetComponent<Collider>().enabled = false;
+            isPickedUp = true;
+            held = true;
+        }
+        else
+        {
+            Debug.Log("Interact with 2nd time?");
+            if (eggs >= 3)
+            {
+                Debug.Log("We have 3 eggs");
+                
+                Debug.Log("launching");
+                isPickedUp = false; 
+                GetComponent<Rigidbody>().useGravity = true;
+                GetComponent<Rigidbody>().AddForce(transform.forward * chickenSpeed, ForceMode.Impulse);
+                gsb.Play();
+            }
+        }
+        
+        
     }
 
     public bool ReInteract()
     {
-        return false;
+        return true;
     }
 
     private void pickedUp()
     {
         if (isPickedUp)
         {
-            // characterMovement.speed = 0;
-            // cameraController.mouseLook.x = Mathf.Clamp(cameraController.mouseLook.x, -0.01f,0.01f );
-            // currentRotation = gameObject.transform.position;
-            // gameObject.transform.position = new Vector3(camera.transform.position.x, 3.0f, camera.transform.position.z + 1);
             gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             gameObject.transform.parent = camera.transform;
             characterMovement.speed = 0;
@@ -66,6 +86,7 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
     // Start is called before the first frame update
         void Start()
         {
+            gsb = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
