@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlushingTheFlush : MonoBehaviour,IInteractableObject
 {
@@ -12,45 +13,69 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
     public GameObject player;
     public GameObject door;
     public GameObject wallToTrain;
+    public GameObject milkScreen;
+    public GameObject transactionScreen;
+    public GameObject laptop;
+    private bool canOderMilk = false;
+    private bool milkscreenIsOn = false;
+    public TextController thought;
+    private bool sequencecomplete = false;
     public void Interact()
     {
+        if (!neverSeenATrain && canOderMilk)
+        {
+            laptop.GetComponent<AudioSource>().Play();
+            if (milkscreenIsOn)
+            {
+                milkScreen.SetActive(false);
+                transactionScreen.SetActive(true);
+                thought.DisplayThought("Milk Obtained", 0);
+                sequencecomplete = true;
+            }
+            else
+            {
+                milkScreen.SetActive(true);
+                milkscreenIsOn = true;
+            }
+        }
+
         if (neverSeenATrain)
         {
-            Vector3 pos = new Vector3(transform.position.x +30, transform.position.y , transform.position.z - 2.15f);
+            neverSeenATrain = false;
+            Vector3 pos = new Vector3(transform.position.x + 30, transform.position.y, transform.position.z - 2.15f);
             GameObject train = Instantiate(Train, pos, Quaternion.identity); // spawn train
             door.SetActive(true);
             wallToTrain.SetActive(false);
-            neverSeenATrain = false;
-            StartCoroutine(moveTrain(train)); // Train animation
-        }
-        else
-        {
-            Debug.Log("ye bharna h abhi");
+            StartCoroutine(moveTrain(train, train.GetComponent<AudioSource>())); // Train animation
         }
     }
+
     public void openEyes()
     {
         ui.SetActive(false);
     }
-
     public bool ReInteract()
     {
         return true;
     }
 
-    IEnumerator moveTrain(GameObject T)
+    IEnumerator moveTrain(GameObject T, AudioSource A)
     {
+        A.Play();
+        yield return new WaitForSeconds(14);
         for (int i = 0; i < 300; i++)
         {
             T.transform.Translate(-0.1f, 0, 0);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        Debug.Log("GAME OVER!");
         ui.SetActive(true);
         player.transform.position = new Vector3(0f, 1.85f, 0f);
-        Invoke("openEyes", 2);
+        Invoke("openEyes", 3);
+        yield return new WaitForSeconds(3);
         Destroy(T);
         wallToTrain.SetActive(true);
         door.SetActive(false); 
+        Debug.Log(gameObject.name);
+        canOderMilk = true;
     }
 }

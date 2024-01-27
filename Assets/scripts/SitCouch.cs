@@ -10,11 +10,6 @@ public class SitCouch : MonoBehaviour, IInteractableObject
     
     
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
     public void Interact()
     {
         if (!isSitting)
