@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,19 +21,21 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
     private bool milkscreenIsOn = false;
     public TextController thought;
     private bool sequencecomplete = false;
+    public GameObject keyboard;
     public void Interact()
     {
         if (!neverSeenATrain && canOderMilk)
         {
             laptop.GetComponent<AudioSource>().Play();
-            if (milkscreenIsOn)
+            StartCoroutine(rotateTheKeyboard(keyboard));
+            if (milkscreenIsOn && !sequencecomplete)
             {
                 milkScreen.SetActive(false);
                 transactionScreen.SetActive(true);
                 thought.DisplayThought("Milk Obtained", 0);
                 sequencecomplete = true;
             }
-            else
+            if (!milkscreenIsOn && !sequencecomplete)
             {
                 milkScreen.SetActive(true);
                 milkscreenIsOn = true;
@@ -77,5 +80,14 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
         door.SetActive(false); 
         Debug.Log(gameObject.name);
         canOderMilk = true;
+    }
+
+    IEnumerator rotateTheKeyboard(GameObject K)
+    {
+        while (true)
+        {
+            K.transform.Rotate(0f, 15f, 0f, Space.Self);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
     }
 }
