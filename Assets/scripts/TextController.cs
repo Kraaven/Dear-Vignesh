@@ -35,7 +35,6 @@ public class TextController : MonoBehaviour
         Debug.Log("Fading");
         for (float i = 1; i > 0 ; i-=0.05f)
         {
-            Debug.Log(i);
             dialogue.color = new Color(1, 1, 1, i);
             yield return new WaitForSeconds(0.048f);
         }

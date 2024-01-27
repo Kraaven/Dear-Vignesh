@@ -18,4 +18,19 @@ public class HandController : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
+
+    public void MoveHBack()
+    {
+        StartCoroutine(MoveBack());
+    }
+    public IEnumerator MoveBack()
+    {
+        for (int i = 240; i > 0; i--)
+        {
+            transform.Translate(0,0,-0.005f);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        
+        Destroy(gameObject);
+    }
 }
