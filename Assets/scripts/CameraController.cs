@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
 
     // Use this for initialization
     void Start () {
+        Cursor.lockState = CursorLockMode.Locked;
         character = transform.parent.gameObject;
     }
 	
@@ -37,5 +38,10 @@ public class CameraController : MonoBehaviour
         // vector3.right means the x-axis
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+        
+        if (Input.GetKeyDown("escape"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

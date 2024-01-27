@@ -82,5 +82,7 @@ public class InteractionController : MonoBehaviour
             }
         }
         
+        //Debug.Log("Current: "+ currentInteractableObject+" Cache: "+ LastInteracted);
+        
     }
 }

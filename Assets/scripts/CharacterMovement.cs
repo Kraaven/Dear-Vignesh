@@ -37,9 +37,6 @@ public class CharacterMovement : MonoBehaviour
         // }
         
         
-        if (Input.GetKeyDown("escape"))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        
     }
 }
