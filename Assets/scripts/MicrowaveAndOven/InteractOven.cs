@@ -10,6 +10,7 @@ public class InteractOven : MonoBehaviour , IInteractableObject
     public GameObject overPlaceholder;
     public void Interact()
     {
+        Debug.Log("Microwave door opens to give hint to interact with oven");
         if (!isInHand)
         {
             InHand();
@@ -22,6 +23,7 @@ public class InteractOven : MonoBehaviour , IInteractableObject
 
     public void InHand()
     {
+        Debug.Log("");
         isInHand = true;
         overPlaceholder.SetActive(true);
         gameObject.transform.parent = anchor.transform;
