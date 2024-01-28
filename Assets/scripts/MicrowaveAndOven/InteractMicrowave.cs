@@ -14,8 +14,7 @@ public class InteractMicrowave : MonoBehaviour , IInteractableObject
     public void Interact()
     {
         if (isInteracted && GetOven)
-        {
-            //Instantaite oven and give to anchor
+        {   
             ovenReturns.transform.parent = hand.transform;
             ovenReturns.transform.localScale = new Vector3(0.3f, .3f, .3f);
             ovenReturns.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y,

@@ -9,6 +9,7 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
 {
     public GameObject player;
     public GameObject cameraObj;
+    public GameObject fatherFigure;
     public bool isPickedUp = false;
     public CharacterMovement characterMovement;
     public CameraController cameraController;
@@ -16,8 +17,8 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
     private bool held;
     public int eggs = 0;
     private float chickenSpeed = 10f;
-    private AudioSource gsb;
-
+    public AudioSource gsb;
+    public bool isShot = false;
     public void Interact()
     {
         Debug.Log("Interacting with chicken");
@@ -39,15 +40,27 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
                 isPickedUp = false; 
                 GetComponent<Rigidbody>().useGravity = true;
                 GetComponent<Rigidbody>().AddForce(transform.forward * chickenSpeed, ForceMode.Impulse);
-                gsb.Play();
-            }
+                gameObject.transform.parent = fatherFigure.transform;
+                Invoke("PlayAudioWithDelay", 0.3f);
+                Destroy(gameObject,1.5f);
+                characterMovement.speed = 4.5f;
+                cameraController.sensitivity = 5;
+                isShot = true;
+            } 
         }
-        
-        
+    }
+
+    private void PlayAudioWithDelay()
+    {
+        gsb.Play();
     }
 
     public bool ReInteract()
     {
+        if (isShot = true)
+        {
+            return false;
+        }
         return true;
     }
 
