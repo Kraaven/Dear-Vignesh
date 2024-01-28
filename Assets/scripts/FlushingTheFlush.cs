@@ -22,18 +22,28 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
     public TextController thought;
     private bool sequencecomplete = false;
     public GameObject keyboard;
+    public ParticleSystem particleSystem;
+    public GameObject milk;
+    public MilkCartonInteraction milkCartonInteraction;
+
+    public void Start()
+    {
+        particleSystem.Stop(); 
+    }
+
     public void Interact()
     {
         if (!neverSeenATrain && canOderMilk)
         {
+            particleSystem.GetComponent<ParticleSystem>().Play();
             laptop.GetComponent<AudioSource>().Play();
             StartCoroutine(rotateTheKeyboard(keyboard));
             if (milkscreenIsOn && !sequencecomplete)
             {
                 milkScreen.SetActive(false);
                 transactionScreen.SetActive(true);
-                thought.DisplayThought("Milk Obtained", 0);
                 sequencecomplete = true;
+                StartCoroutine(moveUpTheMilk(milk));
             }
             if (!milkscreenIsOn && !sequencecomplete)
             {
@@ -59,7 +69,14 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
     }
     public bool ReInteract()
     {
-        return true;
+        if (sequencecomplete)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     IEnumerator moveTrain(GameObject T, AudioSource A)
@@ -88,6 +105,20 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
         {
             K.transform.Rotate(0f, 15f, 0f, Space.Self);
             yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
+
+    IEnumerator moveUpTheMilk(GameObject M)
+    {
+        for (int i = 0; i < 200; i++)
+        {
+            M.transform.Translate(0f, 0.01f, 0);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        if (milkCartonInteraction.interacted())
+        {
+            Destroy(milk);
         }
     }
 }
