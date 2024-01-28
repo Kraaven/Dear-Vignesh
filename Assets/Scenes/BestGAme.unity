@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 570434203}
   - component: {fileID: 570434202}
   - component: {fileID: 570434206}
+  - component: {fileID: 570434207}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -362,16 +363,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f9175d9e347da41b2f085f404f8306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accel: 200
+  accel: 300
   airAccel: 200
-  maxSpeed: 6.4
-  maxAirSpeed: 0.6
-  friction: 8
+  maxSpeed: 8
+  maxAirSpeed: 1
+  friction: 5
   jumpForce: 5
   groundLayers:
     serializedVersion: 2
+    m_Bits: 8
+  camObj: {fileID: 1809295504}
+--- !u!54 &570434207
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570434201}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
     m_Bits: 0
-  camObj: {fileID: 0}
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &823177045
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +412,7 @@ GameObject:
   - component: {fileID: 823177048}
   - component: {fileID: 823177047}
   - component: {fileID: 823177046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
