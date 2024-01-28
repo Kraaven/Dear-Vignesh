@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d97b43ff-3dec-4954-8452-836f226b8103" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dear-Vignesh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dear-Vignesh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/TVTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/TVTexture.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Asmit Testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Asmit Testing.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Chicken/ChickenInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Chicken/ChickenInteract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/MicrowaveAndOven/InteractMicrowave.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/MicrowaveAndOven/InteractMicrowave.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/MicrowaveAndOven/InteractOven.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/MicrowaveAndOven/InteractOven.cs" afterDir="false" />
-    </list>
+    <list default="true" id="d97b43ff-3dec-4954-8452-836f226b8103" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
