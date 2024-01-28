@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InteractionController : MonoBehaviour
@@ -15,6 +16,10 @@ public class InteractionController : MonoBehaviour
     public IInteractableObject currentInteractableObject;
     //The UI message that is displayed
     public IInteractableObject LastInteracted;
+
+    [SerializeField] private GameObject strawberry_gameObj, Strawberry_panel;
+    [SerializeField] private TextMeshProUGUI strawberry_text;
+    [SerializeField] private AudioSource strawberryAlert_sound;
     
 
     public void Start()
@@ -51,6 +56,12 @@ public class InteractionController : MonoBehaviour
                     //reset the message of the UI, and reset the interactable object
                     currentInteractableObject = null;
                 }
+
+                if (Hit.collider.gameObject.CompareTag("tree"))
+                {
+                    Debug.Log("LOOKING AT");
+                    StartCoroutine(LookedAt());
+                }
             }
             
         }
@@ -60,8 +71,16 @@ public class InteractionController : MonoBehaviour
             currentInteractableObject = null;
             SeenGameObject = null;
         }
-        
-        
+
+        IEnumerator LookedAt()
+        {
+            yield return new WaitForSeconds(1f);
+            strawberry_gameObj.SetActive(false);
+            Strawberry_panel.SetActive(false);
+            Strawberry_panel.transform.GetChild(0).gameObject.SetActive(false);
+            strawberryAlert_sound.Stop();
+            
+        }
         
         //Try to interact with the object
         if (Input.GetKeyDown(KeyCode.E))
