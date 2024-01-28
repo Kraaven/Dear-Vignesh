@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collisions : MonoBehaviour
 {
@@ -10,7 +11,13 @@ public class Collisions : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("");
+            Debug.Log("Vignesh");
+        }
+
+        if (other.gameObject.CompareTag("Cake"))
+        {
+            Debug.Log("Dead");
+            SceneManager.LoadScene(0);
         }
     }
 }
