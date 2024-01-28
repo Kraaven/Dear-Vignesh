@@ -16,6 +16,7 @@ public class PlayerSit : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().useGravity = false;
         transform.Translate(-0.3f,0,0);
+        transform.rotation = Quaternion.Euler(0,-90,0);
         
         check.CutEgg();
         check.ConvertStrawberry();
