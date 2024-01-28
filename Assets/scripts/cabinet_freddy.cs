@@ -59,7 +59,9 @@ public class cabinet_freddy : MonoBehaviour, IInteractableObject
             audioSource.Play();
             audioSource.loop = true;
         }
-        
+
+        gameObject.transform.position = stillcabinet_Prefab.transform.position;
+
     }
 
     public bool ReInteract()
