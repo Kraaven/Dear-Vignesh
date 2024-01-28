@@ -18,6 +18,8 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
     public int eggs = 0;
     private float chickenSpeed = 10f;
     public AudioSource gsb;
+    public AudioSource killChicken;
+    public GameObject boundaries;
     public bool isShot = false;
     public void Interact()
     {
@@ -34,6 +36,7 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
             Debug.Log("Interact with 2nd time?");
             if (eggs >= 3)
             {
+                Destroy(boundaries);
                 Debug.Log("We have 3 eggs");
                 
                 Debug.Log("launching");
@@ -41,8 +44,10 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
                 GetComponent<Rigidbody>().useGravity = true;
                 GetComponent<Rigidbody>().AddForce(transform.forward * chickenSpeed, ForceMode.Impulse);
                 gameObject.transform.parent = fatherFigure.transform;
-                Invoke("PlayAudioWithDelay", 0.3f);
+                Invoke("PlayAudioWithDelay", 0.2f);
                 Destroy(gameObject,1.5f);
+                Debug.Log("Audio play INvoke");
+                Invoke("PlayAudioWithDelayKillChicken", 0.2f);
                 characterMovement.speed = 4.5f;
                 cameraController.sensitivity = 5;
                 isShot = true;
@@ -53,6 +58,11 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
     private void PlayAudioWithDelay()
     {
         gsb.Play();
+    }
+
+    private void PlayAudioWithDelayKillChicken()
+    {
+        killChicken.Play(); 
     }
 
     public bool ReInteract()
