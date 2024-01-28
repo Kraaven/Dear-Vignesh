@@ -49,7 +49,7 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
                 Debug.Log("Audio play INvoke");
                 Invoke("PlayAudioWithDelayKillChicken", 0.2f);
                 characterMovement.speed = 4.5f;
-                cameraController.sensitivity = 5;
+                //cameraController.sensitivity = 5;
                 isShot = true;
             } 
         }
@@ -81,25 +81,25 @@ public class ChickenInteract : MonoBehaviour, IInteractableObject
             gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             gameObject.transform.parent = cameraObj.transform;
             characterMovement.speed = 0;
-            cameraController.sensitivity = 0.5f;
+            //cameraController.sensitivity = 0.5f;
 
             // Store the original rotation of the camera
             Quaternion originalRotation = cameraObj.transform.rotation;
 
             // Rotate the camera using the mouse input
-            cameraController.mouseLook.y += Input.GetAxis("Mouse Y") * cameraController.sensitivity;
-            cameraController.mouseLook.x += Input.GetAxis("Mouse X") * cameraController.sensitivity;
+            ///cameraController.mouseLook.y += Input.GetAxis("Mouse Y") * cameraController.sensitivity;
+            //cameraController.mouseLook.x += Input.GetAxis("Mouse X") * cameraController.sensitivity;
 
             // Clamp the x-axis rotation to restrict it
-            cameraController.mouseLook.x = Mathf.Clamp(cameraController.mouseLook.x, -30f, 30f); // Adjust the values as needed
-            cameraController.mouseLook.y = Mathf.Clamp(cameraController.mouseLook.y, -25f, 0f);
+            //cameraController.mouseLook.x = Mathf.Clamp(cameraController.mouseLook.x, -30f, 30f); // Adjust the values as needed
+            //cameraController.mouseLook.y = Mathf.Clamp(cameraController.mouseLook.y, -25f, 0f);
 
             // Calculate the target rotation
-            Quaternion targetRotation = Quaternion.Euler(-cameraController.mouseLook.y, cameraController.mouseLook.x, 0);
+            //Quaternion targetRotation = Quaternion.Euler(-cameraController.mouseLook.y, cameraController.mouseLook.x, 0);
 
             // Apply smoothing to the rotation
             float smoothFactor = rotationSmoothing * Time.deltaTime;
-            cameraObj.transform.rotation = Quaternion.Slerp(cameraObj.transform.rotation, targetRotation, smoothFactor);
+            //cameraObj.transform.rotation = Quaternion.Slerp(cameraObj.transform.rotation, targetRotation, smoothFactor);
 
             // Restore the original rotation in the z-axis (roll)
             cameraObj.transform.rotation = Quaternion.Euler(cameraObj.transform.rotation.eulerAngles.x, cameraObj.transform.rotation.eulerAngles.y, originalRotation.eulerAngles.z);

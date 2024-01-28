@@ -1,47 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class CameraController : MonoBehaviour
-{
-    [SerializeField]
-    public float sensitivity = 5.0f;
-    [SerializeField]
-    public float smoothing = 2.0f;
-    // the character is the capsule
-    public GameObject character;
-    // get the incremental value of mouse moving
-    private Quaternion clampRotation;
-    public Vector2 mouseLook;
-    // smooth the mouse moving
-    private Vector2 smoothV;
+/// MouseLook rotates the transform based on the mouse delta.
+/// Minimum and Maximum values can be used to constrain the possible rotation
 
-    // Use this for initialization
-    void Start () {
-        Cursor.lockState = CursorLockMode.Locked;
-        character = transform.parent.gameObject;
-    }
+/// To make an FPS style character:
+/// - Create a capsule.
+/// - Add the MouseLook script to the capsule.
+///   -> Set the mouse look to use LookX. (You want to only turn character but not tilt it)
+/// - Add FPSInputController script to the capsule
+///   -> A CharacterMotor and a CharacterController component will be automatically added.
+
+/// - Create a camera. Make the camera a child of the capsule. Reset it's transform.
+/// - Add a MouseLook script to the camera.
+///   -> Set the mouse look to use LookY. (You want the camera to tilt up and down like a head. The character already turns.)
+[AddComponentMenu("Camera-Control/Mouse Look")]
+public class CameraController : MonoBehaviour {
+
+	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
+	public RotationAxes axes = RotationAxes.MouseXAndY;
+	public float sensitivityX = 15F;
+	public float sensitivityY = 15F;
+
+	public float minimumX = -360F;
+	public float maximumX = 360F;
+
+	public float minimumY = -60F;
+	public float maximumY = 60F;
+
+	public bool invertY = false;
+
+	float rotationY = 0F;
+
+	void Update ()
+	{
+		float ySens = sensitivityY;
+		if(invertY) { ySens *= -1f; }
+
+		if (axes == RotationAxes.MouseXAndY)
+		{
+			float rotationX = transform.localEulerAngles.y + GetMouseX() * sensitivityX;
+			
+			rotationY += GetMouseY() * ySens;
+			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+			transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+		}
+		else if (axes == RotationAxes.MouseX)
+		{
+			transform.Rotate(0, GetMouseX() * sensitivityX, 0);
+		}
+		else
+		{
+			rotationY += GetMouseY() * ySens;
+			rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+			transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
+		}
+	}
 	
-    // Update is called once per frame
-    void Update () {
-        // md is mouse delta
-        var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-        // the interpolated float result between the two float values
-        smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
-        smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
-        // incrementally add to the camera look
-        mouseLook += smoothV;
+	void Start ()
+	{
+		// Make the rigid body not change rotation
+		if (GetComponent<Rigidbody>())
+			GetComponent<Rigidbody>().freezeRotation = true;
+	}
 
-        mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
-        
-        // vector3.right means the x-axis
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-        character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-        
-        if (Input.GetKeyDown("escape"))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+    float GetMouseX()
+    {
+        return Input.GetAxis("Mouse X");
+    }
+
+    float GetMouseY()
+    {
+        return Input.GetAxis("Mouse Y");
     }
 }
