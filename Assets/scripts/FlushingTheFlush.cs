@@ -95,7 +95,6 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
         Destroy(T);
         wallToTrain.SetActive(true);
         door.SetActive(false); 
-        Debug.Log(gameObject.name);
         canOderMilk = true;
     }
 
@@ -114,11 +113,6 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
         {
             M.transform.Translate(0f, 0.01f, 0);
             yield return new WaitForSeconds(Time.deltaTime);
-        }
-
-        if (milkCartonInteraction.interacted())
-        {
-            Destroy(milk);
         }
     }
 }
