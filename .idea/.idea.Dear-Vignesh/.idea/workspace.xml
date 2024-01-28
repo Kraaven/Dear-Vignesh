@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b43ff-3dec-4954-8452-836f226b8103" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Collisions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collisions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dear-Vignesh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dear-Vignesh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BestGAme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BestGAme.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +19,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Collisions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/Chicken/EggInteract.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/MicrowaveAndOven/InteractOverplaceholder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />

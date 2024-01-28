@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class Movement : MonoBehaviour
     
 	private void Update()
     {
-        print(new Vector3(GetComponent<Rigidbody>().velocity.x, 0f, GetComponent<Rigidbody>().velocity.z).magnitude);
         if (Input.GetButton("Jump"))
 		{
 			lastJumpPress = Time.time;
@@ -144,5 +144,10 @@ public class Movement : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
         bool result = Physics.Raycast(ray, GetComponent<Collider>().bounds.extents.y + 0.1f, groundLayers);
         return result;
+	}
+
+	private void Start()
+	{
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 }
