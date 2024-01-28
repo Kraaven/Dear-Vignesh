@@ -38,6 +38,7 @@ public class cabinet_freddy : MonoBehaviour, IInteractableObject
     {
         isOpen = true;
         Debug.Log("Freddy is Open");
+        gameObject.transform.Rotate(0,-90f,0);
         //audioSource.Stop();
 
     }
@@ -46,6 +47,7 @@ public class cabinet_freddy : MonoBehaviour, IInteractableObject
     {
         isOpen = false;
         Debug.Log("Freddy is Close");
+        gameObject.transform.Rotate(0,0,0);
         audioSource.Pause();
     }
 
