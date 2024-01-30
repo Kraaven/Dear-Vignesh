@@ -11,6 +11,8 @@ public class InteractMicrowave : MonoBehaviour , IInteractableObject
     public GameObject ovenReturns;
     public GameObject hand;
     public bool GetOven;
+    public AudioSource airtel;
+    public int hasInteracted = 0;
     public void Interact()
     {
         if (isInteracted && GetOven)
@@ -23,8 +25,10 @@ public class InteractMicrowave : MonoBehaviour , IInteractableObject
         }
         if (hand.transform.childCount == 1)
         {
+            airtel.Play();
             isInteracted = true;
             Destroy(oven);
+            hasInteracted++;
         }
 
         StartCoroutine(PlayMicrowave());
@@ -38,7 +42,15 @@ public class InteractMicrowave : MonoBehaviour , IInteractableObject
     IEnumerator PlayMicrowave()
     {
         //Play music
-        yield return new WaitForSeconds(3);
+        if (hasInteracted == 1)
+        {
+            airtel.Play();
+        }
+        else
+        {
+            airtel.Stop();
+        }
+        yield return new WaitForSeconds(11);
         GetOven = true;
     }
 }
