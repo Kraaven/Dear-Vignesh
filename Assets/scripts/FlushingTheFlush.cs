@@ -8,15 +8,16 @@ using UnityEngine.UI;
 public class FlushingTheFlush : MonoBehaviour,IInteractableObject
 {
     //Declarations
-    public bool neverSeenATrain = true;
+   [SerializeField] private bool neverSeenATrain = true;
+
     public GameObject Train;
     public GameObject ui;
     public GameObject player;
     public GameObject door;
     public GameObject wallToTrain;
     public GameObject milkScreen;
+    public AudioSource laptopFlushAudio;
     public GameObject transactionScreen;
-    public GameObject laptop;
     private bool canOderMilk = false;
     private bool milkscreenIsOn = false;
     public TextController thought;
@@ -26,17 +27,12 @@ public class FlushingTheFlush : MonoBehaviour,IInteractableObject
     public GameObject milk;
     public MilkCartonInteraction milkCartonInteraction;
 
-    public void Start()
-    {
-        particleSystem.Stop(); 
-    }
-
     public void Interact()
     {
         if (!neverSeenATrain && canOderMilk)
         {
-            particleSystem.GetComponent<ParticleSystem>().Play();
-            laptop.GetComponent<AudioSource>().Play();
+            particleSystem.Play();
+            laptopFlushAudio.Play();  //// GameObject not required. Switch to AudioSource.
             StartCoroutine(rotateTheKeyboard(keyboard));
             if (milkscreenIsOn && !sequencecomplete)
             {
