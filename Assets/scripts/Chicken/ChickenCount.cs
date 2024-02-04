@@ -12,6 +12,7 @@ public class ChickenCount : MonoBehaviour
     public GameObject chickenObj;
     private Vector3 chickenPos;
     public GameObject Egg;
+    public GameObject fatherFigure;
     
     
     void Start()
@@ -26,6 +27,7 @@ public class ChickenCount : MonoBehaviour
         {
             chickenPos = chickenObj.transform.position + new Vector3(0,-1,0);
             Instantiate(Egg, chickenPos, transform.rotation);
+            Debug.Log("Spawning egg");
             Egg.SetActive(true);
             GameObject.FindObjectOfType<ChickenInteract>().eggs++;
         }
@@ -36,9 +38,11 @@ public class ChickenCount : MonoBehaviour
         Count += 1;
         if (Count == 10 || Count == 20 || Count == 30)  
         {
-            chickenPos = chickenObj.transform.position + new Vector3(0,-1,0);
+            chickenPos = chickenObj.transform.position + new Vector3(-0,-1,0);
             Instantiate(Egg, chickenPos, transform.rotation);
+            Debug.Log("Spawning egg");
             Egg.SetActive(true);
+            Egg.transform.parent = fatherFigure.transform;
             GameObject.FindObjectOfType<ChickenInteract>().eggs++;
         }
     }   
