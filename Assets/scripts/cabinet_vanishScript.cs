@@ -30,7 +30,7 @@ public class cabinet_vanishScript : MonoBehaviour, IInteractableObject
     {
         for (int i = 0; i < 120; i++)
         {
-            vanishCabinet.transform.Translate(0,0,0.1f);
+            vanishCabinet.transform.Translate(0,0,-0.1f);
             yield return new WaitForSeconds(0.05f);
         }
         
